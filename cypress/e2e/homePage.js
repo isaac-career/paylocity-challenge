@@ -15,6 +15,7 @@ class homePage {
         this.elements.fieldName().type(name)
         this.elements.fieldLastName().type(lastname)
         this.elements.fieldDependants().type(dependants)
+        cy.wait(1000)
         this.elements.btnSave().click()
     }
 
@@ -26,6 +27,7 @@ class homePage {
         this.elements.fieldName().type(name)
         this.elements.fieldLastName().type(lastname)
         this.elements.fieldDependants().type(dependants)
+        cy.wait(2000)
         this.elements.btnUpdate().click()
     }
 
