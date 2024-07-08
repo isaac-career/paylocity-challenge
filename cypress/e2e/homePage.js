@@ -1,5 +1,3 @@
-const { last } = require("cypress/types/lodash")
-
 class homePage {
     elements= {
         btnAdd: () => cy.get('#add'),
@@ -21,7 +19,10 @@ class homePage {
     }
 
     editNewEmployee(name, lastname, dependants){
-        this.elements.btnAdd().click()
+        this.elements.fieldName().clear()
+        this.elements.fieldLastName().clear()
+        this.elements.fieldDependants().clear()
+
         this.elements.fieldName().type(name)
         this.elements.fieldLastName().type(lastname)
         this.elements.fieldDependants().type(dependants)

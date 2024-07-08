@@ -17,20 +17,22 @@ describe('template spec', () => {
         console.log('created-ID' + id)
         cy.wrap(id).as('createdId')
         expect(response.statusCode).to.eq(200)
+        cy.wait(2000)
       })
       
       //expect(response.statusCode).to.eq(200) //expect(response.body.firstName).to.eq('jorge') const idNewUser = response.body.id console.log('ID new idNewUser) cy.wrap(idNewUser).as ('wrapCreatedUserID')
 
   })  
 
-  it('Edit created user', function(){
-    cy.visit('/')
-    loginPage.doLogin('TestUser400','/jau84_Q+--p')
-    console.log(this.createdId)
-    cy.contains('tr', this.createdId ).children().last().children().first().click()
-    homePage.editNewEmployee('Alex', 'Campos', '3')
+    it('Edit created user', function(){
+      cy.visit('/')
+      loginPage.doLogin('TestUser400','/jau84_Q+--p')
+      console.log(this.createdId)
+      cy.contains('tr', this.createdId ).children().last().children().first().click()
+      homePage.editNewEmployee('John', 'Smith', '2')
+      cy.wait(2000)
 
-  })
+    })  
 
   it('Delete created user', function(){
     cy.visit('/')
@@ -38,6 +40,7 @@ describe('template spec', () => {
     console.log(this.createdId)
     cy.contains('tr', this.createdId ).children().last().children().last().click()
     homePage.deleteCreatedEmployee()
+    cy.wait(2000)
 
   })
 
