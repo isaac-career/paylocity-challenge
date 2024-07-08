@@ -1,0 +1,19 @@
+{
+  "name": "paylocity-framework",
+  "version": "1.0.0",
+  "description": "paylocity challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "keywords": [
+    "ts",
+    "js",
+    "cy"
+  ],
+  "author": "isaac moreno",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.13.0"
+  }
+}
