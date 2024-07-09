@@ -1,3 +1,5 @@
+import employeesData from "./../fixtures/newEmployees.json" 
+
 describe('API tests', function(){
 
    
@@ -83,6 +85,29 @@ describe('API tests', function(){
             })
     })
 
+    it('VALUES OF NEW EMPLOYEE 0 DEPENDANTS ARE CORRECT', function(){
+        cy.request({
+            method: 'POST',
+            url: 'https://wmxrwq14uc.execute-api.us-east-1.amazonaws.com/Prod/api/employees', 
+            headers: {
+                Authorization: 'Basic VGVzdFVzZXI0MDA6L2phdTg0X1ErLS1w',
+                'Content-Type': 'application/json'
+            },
+            body:{
+                "firstName":employeesData[0].name,
+                "lastName": employeesData[0].lastName,
+                "dependants": employeesData[0].dependants
+            }
+        })
+            .then((r) => {
+            expect(r.status).to.eq(200)
+            console.log("response CREATE NEW EMPLOYEE")
+            console.log(r)
+            const idNewEmployee = r.body.id;
+            console.log('just-created-ID' + idNewEmployee)
+            cy.wrap(idNewEmployee).as ('justCreatedId')
+            })
+    })
 
 
     //  it('GET ALL EMPLOYEES, and get 200 code', function(){
