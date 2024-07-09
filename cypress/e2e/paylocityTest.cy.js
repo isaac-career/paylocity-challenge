@@ -2,10 +2,27 @@ import loginPage from "./LoginPage"
 import homePage from "./homePage"
 
 describe('template spec', () => {
+
+  beforeEach( function()  {
+
+    cy.fixture('credentials')
+      .then(credentials => {
+        this.credentials = credentials;
+      })
   
-  it('do login', function () {
-      cy.visit('/')
-      loginPage.doLogin('TestUser400','/jau84_Q+--p')
+  })
+  beforeEach( function()  {
+
+     cy.visit('/')
+  //    loginPage.doLogin('TestUser400','/jau84_Q+--p')
+     loginPage.doLogin(this.credentials.userName, this.credentials.password)
+  
+  
+  })
+  
+  it('Add one Employee', function () {
+    // loginPage.doLogin(this.credentials.userName, this.credentials.password)
+    
       
       cy.intercept('POST', 'https://wmxrwq14uc.execute-api.us-east-1.amazonaws.com/Prod/api/employees').as('createBoard')
       homePage.addNewEmployee('Roberto', 'Lara', '1')
@@ -25,8 +42,6 @@ describe('template spec', () => {
   })  
 
     it('Edit created user', function(){
-      cy.visit('/')
-      loginPage.doLogin('TestUser400','/jau84_Q+--p')
       console.log(this.createdId)
       cy.contains('tr', this.createdId ).children().last().children().first().click()
       homePage.editNewEmployee('John', 'Smith', '2')
@@ -34,13 +49,11 @@ describe('template spec', () => {
 
     })  
 
-  it('Delete created user', function(){
-    cy.visit('/')
-    loginPage.doLogin('TestUser400','/jau84_Q+--p')
-    console.log(this.createdId)
-    cy.contains('tr', this.createdId ).children().last().children().last().click()
-    homePage.deleteCreatedEmployee()
-    cy.wait(2000)
+    it('Delete created user', function(){
+      console.log(this.createdId)
+      cy.contains('tr', this.createdId ).children().last().children().last().click()
+      homePage.deleteCreatedEmployee()
+      cy.wait(2000)
 
   })
 
