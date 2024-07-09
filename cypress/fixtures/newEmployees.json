@@ -3,7 +3,7 @@
         {
             "name":"Robert",
             "lastName": "Costa",
-            "dependants": "1"
+            "dependants": "0"
         },
         {
             "name":"Aaron",
@@ -23,7 +23,7 @@
         {
             "name":"Berta",
             "lastName": "Linares",
-            "dependants": "5"
+            "dependants": "1"
         }
 ]
 

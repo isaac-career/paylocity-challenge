@@ -67,7 +67,7 @@ describe('template spec', () => {
       
       cy.intercept('POST', 'https://wmxrwq14uc.execute-api.us-east-1.amazonaws.com/Prod/api/employees').as('createBoard')
     homePage.addNewEmployee(employeesData[2].name, employeesData[2].lastName, employeesData[2].dependants)
-      //homePage.addNewEmployee('Roberto', 'Lara', '1')
+      //homePage.addNewEmployee('Roberto', 'Lara', '5')
 
       cy.wait(2000)
       cy.wait('@createBoard').then(({response}) => {
