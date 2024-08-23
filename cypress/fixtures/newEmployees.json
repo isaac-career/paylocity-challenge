@@ -1,28 +1,28 @@
     [
         
         {
-            "name":"Robert",
-            "lastName": "Costa",
+            "name":"Grupo 2",
+            "lastName": "uno",
             "dependants": "0"
         },
         {
-            "name":"Aaron",
-            "lastName": "McKalen",
+            "name":"Grupo 2",
+            "lastName": "dos",
             "dependants": "2"
         },
         {
-            "name":"George",
-            "lastName": "Rusel",
+            "name":"Grupo 2",
+            "lastName": "tres",
             "dependants": "3"
         },
         {
-            "name":"Mateo",
-            "lastName": "Rodriguez",
+            "name":"Grupo 2",
+            "lastName": "cuatro",
             "dependants": "4"
         },
         {
-            "name":"Berta",
-            "lastName": "Linares",
+            "name":"Grupo 2",
+            "lastName": "cinco",
             "dependants": "1"
         }
 ]
